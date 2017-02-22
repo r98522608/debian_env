@@ -1,7 +1,7 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/home/ives/.vim/bundle/Vundle.vim
 call vundle#begin('~/.vim/bundle')
 "call vundle#begin()
 
@@ -22,7 +22,7 @@ Plugin 'nelstrom/vim-markdown-preview'
 "python sytax checker
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/Pydiction'
-let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
+let g:pydiction_location = '/home/ives/.vim/bundle/Pydiction/complete-dict'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 
@@ -166,3 +166,4 @@ nnoremap <C-F7>   <Esc>:w<CR>:!python2.7 %<CR>
 nnoremap <silent> # :s#^#\##<cr>:noh<cr>
 nnoremap <silent> -# :s#^\###<cr>:noh<cr>
 
+set tags=/home/ives/mytags;/
