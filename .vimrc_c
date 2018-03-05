@@ -1,14 +1,14 @@
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
 
+set nocompatible
+filetype off
+set rtp+=/home/ives/.vim/bundle/Vundle.vim
+call vundle#begin('~/.vim/bundle')
 Plugin 'VundleVim/Vundle.vim'
-
 Bundle 'majutsushi/tagbar'
 "nmap <Leader>tb :TagbarToggle<CR>		"快捷键设置
 let g:tagbar_ctags_bin='ctags'			"ctags程序的路径
 let g:tagbar_width=30					"窗口宽度的设置
 map <F3> :TagbarToggle<CR>
-"autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen() 	"如果是c语言的程序的话，tagbar自动开启
 
 Bundle 'scrooloose/nerdtree'
 let NERDTreeWinPos='left'
@@ -28,8 +28,7 @@ let g:miniBufExplMoreThanOne=0
 map <F11> :MBEbp<CR>
 map <F12> :MBEbn<CR>
 
-
-"Bundle 'Raimondi/delimitMate'
+Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Valloric/YouCompleteMe'
 
@@ -39,7 +38,7 @@ call vundle#end()            " required
 "private setting
 set backspace=2
 
-set number
+set rnu
 syntax on
 set tabstop=4
 set shiftwidth=4
@@ -49,8 +48,14 @@ nnoremap <F4>   <Esc>:w<CR>:!gcc % -o /tmp/a.out && /tmp/a.out<CR>
 nnoremap <F5>   <Esc>:w<CR>:!g++ -std=c++11 % -o /tmp/a.out && /tmp/a.out<CR>
 nnoremap <F7>   <Esc>:w<CR>:!g++ -std=c++11 %<CR>
 nnoremap <C-F5> <Esc>:w<CR>:!g++ -std=c++11 -g % -o /tmp/a.out && gdb /tmp/a.out<CR>
+nnoremap <F6>   <Esc>:w<CR>i#include <stdlib.h><CR>#include <stdio.h><CR><CR><CR>int main(){<CR><CR>return 0;<CR>}<CR>
+nnoremap <C-F6>   <Esc>:w<CR>i#ifdef __DEBUG__<CR>printf("%s: \n",__LINE__);<CR>#endif<Esc>k$hhi
+nnoremap <C-M>   <Esc>:move 
+"nnoremap <Tab>   <Esc>:set norelativenumber! <CR>
+nnoremap <Tab>   <Esc>:set nornu!<CR>
 
 
 "for auto-paranthesis
 let b:delimitMate_expand_cr = 1
 filetype indent plugin on
+"cs add $CSCOPE_DB
